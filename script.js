@@ -164,3 +164,68 @@ function initPointCloud(canvasId, opts) {
 
 initPointCloud('pointCloud', { cols: 52, rows: 26, amplitude: 7 });
 initPointCloud('pointCloud2', { cols: 40, rows: 18, amplitude: 5 });
+
+// ============ Lightbox: click a photo to view it larger ============
+function initLightbox() {
+  const items = Array.from(document.querySelectorAll('.gallery__item'));
+  if (!items.length) return;
+
+  const data = items.map(it => {
+    const img = it.querySelector('img');
+    const cap = it.querySelector('figcaption');
+    return { src: img.src, alt: img.alt || '', caption: cap ? cap.textContent : '' };
+  });
+
+  const lightbox = document.getElementById('lightbox');
+  const lbImg = document.getElementById('lightboxImg');
+  const lbCaption = document.getElementById('lightboxCaption');
+  const btnClose = document.getElementById('lightboxClose');
+  const btnPrev = document.getElementById('lightboxPrev');
+  const btnNext = document.getElementById('lightboxNext');
+  let current = 0;
+
+  function show() {
+    const d = data[current];
+    lbImg.src = d.src;
+    lbImg.alt = d.alt;
+    lbCaption.textContent = d.caption;
+  }
+  function open(i) {
+    current = i;
+    show();
+    lightbox.classList.add('is-open');
+    lightbox.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    btnClose.focus();
+  }
+  function close() {
+    lightbox.classList.remove('is-open');
+    lightbox.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+  function prev() { current = (current - 1 + data.length) % data.length; show(); }
+  function next() { current = (current + 1) % data.length; show(); }
+
+  items.forEach((it, i) => {
+    it.style.cursor = 'zoom-in';
+    it.setAttribute('tabindex', '0');
+    it.setAttribute('role', 'button');
+    it.setAttribute('aria-label', 'Ampliar fotografía');
+    it.addEventListener('click', () => open(i));
+    it.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(i); }
+    });
+  });
+
+  btnClose.addEventListener('click', close);
+  btnPrev.addEventListener('click', prev);
+  btnNext.addEventListener('click', next);
+  lightbox.addEventListener('click', (e) => { if (e.target === lightbox) close(); });
+  document.addEventListener('keydown', (e) => {
+    if (!lightbox.classList.contains('is-open')) return;
+    if (e.key === 'Escape') close();
+    if (e.key === 'ArrowLeft') prev();
+    if (e.key === 'ArrowRight') next();
+  });
+}
+initLightbox();
