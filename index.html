@@ -18,8 +18,8 @@
   <nav class="nav" id="mainNav">
     <div class="nav__inner">
       <a href="#" class="nav__brand">
-        <img src="logo.png" alt="SETGEO Logo" class="nav__logo">
-        <span class="nav__brandtext">SETGEO</span>
+        <!-- Ajustado a la ruta estándar de tu logo -->
+        <img src="img/logo.png" alt="SETGEO Logo" class="nav__logo">
       </a>
 
       <ul class="nav__links" id="navLinks">
@@ -43,7 +43,8 @@
   <!-- ================= HERO ================= -->
   <section class="hero">
     <div class="hero__media">
-      <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1920&q=80" alt="Topografía en campo">
+      <!-- Coloca aquí la ruta de la imagen original del Hero (tu equipo de topografía) -->
+      <img src="img/hero-bg.jpg" alt="Equipo de topografía en campo">
       <div class="hero__scrim"></div>
     </div>
 
@@ -121,7 +122,6 @@
           <svg class="helpcard__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1zM4 22v-7"/>
           </svg>
-
           <h3>Fotogrametría Aérea con Drones</h3>
           <p>Mapeo de grandes extensiones con ortofotos centimétricas, curvas de nivel detalladas y modelos digitales de elevación en tiempo récord.</p>
         </div>
@@ -158,11 +158,13 @@
 
         <div class="gallery">
           <figure class="gallery__item gallery__item--wide reveal">
-            <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=800&q=80" alt="Estación total en campo">
+            <!-- Coloca la ruta de tu foto de estación total o GPS local -->
+            <img src="img/estacion-total.jpg" alt="Estación total en campo">
             <figcaption>Estación total de alta precisión en obra</figcaption>
           </figure>
           <figure class="gallery__item gallery__item--tall reveal">
-            <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80" alt="Receptor GNSS RTK">
+            <!-- Coloca la ruta de tu foto de receptor GNSS local -->
+            <img src="img/gnss-rtk.jpg" alt="Receptor GNSS RTK">
             <figcaption>Geodesia GNSS RTK de doble frecuencia</figcaption>
           </figure>
         </div>
@@ -182,7 +184,8 @@
       <div class="service__body service__body--reverse">
         <div class="geo__photos">
           <figure class="gallery__item gallery__item--feature reveal">
-            <img src="https://images.unsplash.com/photo-1508614589041-895b88991e3e?auto=format&fit=crop&w=800&q=80" alt="Vuelo fotogramétrico con dron">
+            <!-- Coloca la ruta de tu foto de dron local -->
+            <img src="img/dron-fotogrametria.jpg" alt="Vuelo fotogramétrico con dron">
             <figcaption>Vuelo fotogramétrico multiespectral y RGB</figcaption>
           </figure>
         </div>
@@ -199,7 +202,7 @@
     </div>
   </section>
 
-  <!-- ================= NOSOTROS / SOBRE LA EMPRESA ================= -->
+  <!-- ================= NOSOTROS ================= -->
   <section class="about" id="nosotros">
     <div class="wrap">
       <p class="eyebrow eyebrow--red">ACERCA DE SETGEO</p>
@@ -207,7 +210,8 @@
 
       <div class="about__intro">
         <div class="about__media reveal">
-          <img src="https://images.unsplash.com/photo-1541888946425-d0fbb186a5b3?auto=format&fit=crop&w=600&q=80" alt="Equipo de ingeniería topográfica SETGEO">
+          <!-- Coloca la ruta de tu foto de equipo / empresa -->
+          <img src="img/nosotros.jpg" alt="Equipo de ingeniería topográfica SETGEO">
         </div>
 
         <div class="about__introtext reveal">
@@ -285,7 +289,7 @@
     <div class="wrap">
       <div class="footer__inner">
         <div class="footer__brand">
-          <img src="logo.png" alt="SETGEO" class="footer__logo">
+          <img src="img/logo.png" alt="SETGEO" class="footer__logo">
           <span>SETGEO — Servicios Especializados en Topografía y Geomática</span>
         </div>
         <p class="footer__copy">&copy; 2026 SETGEO. Todos los derechos reservados.</p>
@@ -295,7 +299,6 @@
 
   <!-- ================= SCRIPT PARA INTERACTIVIDAD ================= -->
   <script>
-    // 1. Cambio de estilo en la barra de navegación al hacer scroll
     const nav = id('mainNav');
     window.addEventListener('scroll', () => {
       if (window.scrollY > 40) {
@@ -305,7 +308,6 @@
       }
     });
 
-    // 2. Menú desplegable para dispositivos móviles
     const burger = id('navBurger');
     const links = id('navLinks');
     const scrim = id('navScrim');
@@ -326,7 +328,6 @@
       });
     }
 
-    // 3. Revelación de elementos mediante Scroll Observer
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -341,3 +342,4 @@
   </script>
 </body>
 </html>
+ 
