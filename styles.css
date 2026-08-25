@@ -280,11 +280,14 @@ h1,h2,h3{font-family:var(--display);margin:0;font-weight:700;}
   overflow:hidden;
   white-space:nowrap;
   padding:13px 0;
+  width:100%;
 }
 .marquee__track{
   display:inline-flex;
   gap:0;
-  animation:marquee 32s linear infinite;
+  width:max-content;
+  will-change:transform;
+  animation:marquee 35s linear infinite;
 }
 .marquee__track span{
   font-family:var(--mono);
@@ -293,10 +296,12 @@ h1,h2,h3{font-family:var(--display);margin:0;font-weight:700;}
   color:var(--muted-light);
   padding:0 26px;
   border-right:1px solid var(--line-dark);
+  display:inline-block;
+  flex-shrink:0;
 }
 @keyframes marquee{
-  from{transform:translateX(0);}
-  to{transform:translateX(-50%);}
+  0%{transform:translateX(0);}
+  100%{transform:translateX(-50%);}
 }
 
 /* =============== HELPS =============== */
